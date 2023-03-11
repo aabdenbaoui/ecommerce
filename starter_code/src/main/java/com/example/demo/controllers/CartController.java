@@ -3,13 +3,12 @@ package com.example.demo.controllers;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
+import com.example.demo.errorresponses.UserErrorResponse;
+import com.example.demo.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.persistence.Cart;
 import com.example.demo.model.persistence.Item;
@@ -36,7 +35,7 @@ public class CartController {
 	public ResponseEntity<Cart> addTocart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			throw new UserException("USER REQUESTED NOT FOUND: " + request.getUsername());
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
@@ -47,13 +46,15 @@ public class CartController {
 			.forEach(i -> cart.addItem(item.get()));
 		cartRepository.save(cart);
 		return ResponseEntity.ok(cart);
+
 	}
 	
 	@PostMapping("/removeFromCart")
 	public ResponseEntity<Cart> removeFromcart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
+		System.out.println(user);
 		if(user == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			throw new UserException("USER REQUESTED NOT FOUND: " + request.getUsername());
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
@@ -64,6 +65,11 @@ public class CartController {
 			.forEach(i -> cart.removeItem(item.get()));
 		cartRepository.save(cart);
 		return ResponseEntity.ok(cart);
+	}
+	@ExceptionHandler
+	public ResponseEntity<UserErrorResponse> handleException(UserException exc){
+		UserErrorResponse error = new UserErrorResponse(HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
 	}
 		
 }
