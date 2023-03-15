@@ -3,8 +3,6 @@ package com.example.demo.controllers;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import com.example.demo.errorresponses.UserErrorResponse;
-import com.example.demo.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +33,7 @@ public class CartController {
 	public ResponseEntity<Cart> addTocart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			throw new UserException("USER REQUESTED NOT FOUND: " + request.getUsername());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
@@ -54,7 +52,7 @@ public class CartController {
 		User user = userRepository.findByUsername(request.getUsername());
 		System.out.println(user);
 		if(user == null) {
-			throw new UserException("USER REQUESTED NOT FOUND: " + request.getUsername());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
@@ -66,10 +64,4 @@ public class CartController {
 		cartRepository.save(cart);
 		return ResponseEntity.ok(cart);
 	}
-	@ExceptionHandler
-	public ResponseEntity<UserErrorResponse> handleException(UserException exc){
-		UserErrorResponse error = new UserErrorResponse(HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
-		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-	}
-		
 }

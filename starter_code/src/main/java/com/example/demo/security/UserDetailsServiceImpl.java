@@ -1,9 +1,5 @@
 package com.example.demo.security;
 
-import java.util.Collections;
-
-import com.example.demo.errorresponses.UserErrorResponse;
-import com.example.demo.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +18,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
-//    private final UserRepository userRepository;
 
     public UserDetailsServiceImpl(UserRepository userRepository) {
         this.userRepository=userRepository;
@@ -36,10 +31,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), emptyList());
     }
-    @ExceptionHandler
-    public ResponseEntity<UserErrorResponse> handleException(UserException exc){
-        UserErrorResponse error = new UserErrorResponse(HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-    }
+
 
 }

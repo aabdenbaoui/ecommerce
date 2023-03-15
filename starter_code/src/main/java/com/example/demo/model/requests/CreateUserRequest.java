@@ -11,6 +11,15 @@ public class CreateUserRequest {
     @JsonProperty
 	private String confirmedPassword;
 
+	public CreateUserRequest() {
+	}
+
+	public CreateUserRequest(String username, String password, String confirmedPassword) {
+		this.username = username;
+		this.password = password;
+		this.confirmedPassword = confirmedPassword;
+	}
+
 	public String getUsername() {
 		return username;
 	}

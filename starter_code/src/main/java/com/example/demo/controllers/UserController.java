@@ -1,9 +1,7 @@
 package com.example.demo.controllers;
-
-import com.example.demo.errorresponses.UserErrorResponse;
-import com.example.demo.exceptions.UserException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -23,74 +21,48 @@ public class UserController {
 	private UserRepository userRepository;
 	@Autowired
 	private CartRepository cartRepository;
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
+
 
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
 		if(userRepository.findById(id).isPresent()){
+			log.error("Cannot find user with id: {}", id);
 			return ResponseEntity.of(userRepository.findById(id));
 		}else{
-			throw new UserException("USER WITH " + id  +" REQUESTED NOT FOUND");
+			log.debug("UserController.findById called with id {}", id);
+			return  ResponseEntity.notFound().build();
 		}
 	}
 	
 	@GetMapping("/{username}")
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
-		System.out.println(user);
 
 		if(user== null){
-			throw new UserException("USER REQUESTED NOT FOUND: " + username);
+			log.error("Cannot find user with username: {}", username);
+			return ResponseEntity.notFound().build();
 		}
+		log.debug("UserController.findByUserName called with username {}", username);
 		return  ResponseEntity.ok(user);
 	}
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
-//		System.out.println(createUserRequest.getPassword());
-//		System.out.println(createUserRequest.getConfirmedPassword());
-//		User user = new User();
-//		User tempUser = userRepository.findByUsername(createUserRequest.getUsername());
-//		if(tempUser != null){
-//			throw new UserException("User already in the database");
-//		}
-//		if(!createUserRequest.getPassword().equals(createUserRequest.getConfirmedPassword())) {
-//			throw new UserException("The passwords you entered don't match");
-//		}
-//		if(!createUserRequest.getPassword().matches(regexPassword)){
-//			throw new UserException("The password you entered is week");
-//		}
-//		String encodedPassword = bCryptPasswordEncoder.encode(createUserRequest.getPassword());
-//		String salt = encodedPassword.substring(7, encodedPassword.length() - 1).substring(0, 22);
-//		Cart cart = new Cart();
-//		user.setUsername(createUserRequest.getUsername());
-//		user.setPassword(encodedPassword);
-//		user.setSalt(salt);
-//        user.setCart(cart);
-//		cartRepository.save(cart);
-//		userRepository.save(user);
-//
-//		return ResponseEntity.ok(user);
-		User user = new User();
-		user.setUsername(createUserRequest.getUsername());
+		User user = new User(createUserRequest.getUsername());
 		Cart cart = new Cart();
 		cartRepository.save(cart);
 		user.setCart(cart);
-		if(createUserRequest.getPassword().length()<7 ||
+
+		if(!createUserRequest.getPassword().matches(regexPassword) ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmedPassword())){
-			//System.out.println("Error - Either length is less than 7 or pass and conf pass do not match. Unable to create ",
-			//		createUserRequest.getUsername());
+			log.error("user can't be created because password you enetered is noty valid {}", createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
+		log.info("The user {} has been created", createUserRequest.getUsername());
 		return ResponseEntity.ok(user);
 	}
-
-	@ExceptionHandler
-	public ResponseEntity<UserErrorResponse> handleException(UserException exc){
-			UserErrorResponse error = new UserErrorResponse(HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
-			return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-	}
-	
 }

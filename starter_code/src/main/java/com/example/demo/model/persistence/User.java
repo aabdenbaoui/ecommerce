@@ -36,7 +36,22 @@ public class User {
 	@JsonIgnore
     private Cart cart;
 
-	public long getId() {
+	public User(long id, String username, String password, Cart cart) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.cart = cart;
+	}
+
+    public User() {
+
+    }
+
+    public User(String username) {
+		this.username = username;
+    }
+
+    public long getId() {
 		return id;
 	}
 
