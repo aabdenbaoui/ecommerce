@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -139,6 +140,12 @@ public class UserControllerTest {
         assertNotNull(response);
         assertNotEquals("OK",(response.getStatusCode().getReasonPhrase()));
         assertEquals("Not Found", response.getStatusCode().getReasonPhrase());
+
+    }
+    @Test(expected = NullPointerException.class)
+    public void testUserInputNullException(){
+        CreateUserRequest createUserRequest01 = new CreateUserRequest(null, null, null );
+        userController.createUser(createUserRequest01);
 
     }
 }

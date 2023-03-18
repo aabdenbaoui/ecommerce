@@ -1,0 +1,101 @@
+2023-03-18T12:50:28.546-0400 ERROR Cannot find user with username: aniss
+2023-03-18T12:50:28.549-0400 INFO log of history orders for testUser 
+2023-03-18T12:50:28.553-0400 INFO Order creation success: for testUser has been created
+2023-03-18T12:50:28.556-0400 ERROR Cannot find user with username: aniss
+2023-03-18T12:50:28.606-0400 ERROR Cannot find user with username: aniss
+2023-03-18T12:50:28.613-0400 ERROR User creation failed: user can't be created because password you enetered is noty valid testUser
+2023-03-18T12:50:28.616-0400 ERROR User creation failed: user can't be created because password you enetered is noty valid testUser
+2023-03-18T12:50:28.621-0400 DEBUG UserController.findByUserName called with username testUser
+2023-03-18T12:50:28.629-0400 ERROR User creation failed: user can't be created because password you enetered is noty valid testUser
+2023-03-18T12:50:28.638-0400 INFO User creation success: The user testUser has been created
+2023-03-18T12:50:28.641-0400 INFO User creation success: The user testUser has been created
+2023-03-18T12:50:28.645-0400 INFO User creation success: The user testUser has been created
+2023-03-18T12:50:28.650-0400 DEBUG UserController.findById called with id 1
+2023-03-18T12:50:28.654-0400 ERROR Cannot find user with id: 0
+2023-03-18T12:50:28.658-0400 ERROR User creation failed: user can't be created because password you enetered is noty valid testUser
+2023-03-18T12:50:29.041-0400 INFO Starting SareetaApplicationTests on DESKTOP-2942BAB with PID 18200 (started by Osprey in C:\Users\Osprey\Desktop\Udacity Projects\ecommerce\starter_code)
+2023-03-18T12:50:29.046-0400 DEBUG Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2023-03-18T12:50:29.048-0400 INFO No active profile set, falling back to default profiles: default
+2023-03-18T12:50:36.889-0400 INFO Started SareetaApplicationTests in 8.173 seconds (JVM running for 12.303)
+2023-03-18T12:57:15.899-0400 ERROR Cannot find user with username: aniss
+2023-03-18T12:57:15.908-0400 INFO log of history orders for testUser 
+2023-03-18T12:57:15.923-0400 INFO Order creation success: for testUser has been created
+2023-03-18T12:57:15.930-0400 ERROR Cannot find user with username: aniss
+2023-03-18T12:57:15.996-0400 ERROR Cannot find user with username: aniss
+2023-03-18T12:57:16.005-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T12:57:16.012-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T12:57:16.018-0400 DEBUG UserController.findByUserName called with username testUser
+2023-03-18T12:57:16.034-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T12:57:16.043-0400 INFO User creation success: The user testUser has been created
+2023-03-18T12:57:16.049-0400 INFO User creation success: The user testUser has been created
+2023-03-18T12:57:16.053-0400 INFO User creation success: The user testUser has been created
+2023-03-18T12:57:16.058-0400 DEBUG UserController.findById called with id 1
+2023-03-18T12:57:16.062-0400 ERROR Cannot find user with id: 0
+2023-03-18T12:57:16.070-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T12:57:16.739-0400 INFO Starting SareetaApplicationTests on DESKTOP-2942BAB with PID 11920 (started by Osprey in C:\Users\Osprey\Desktop\Udacity Projects\ecommerce\starter_code)
+2023-03-18T12:57:16.747-0400 DEBUG Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2023-03-18T12:57:16.749-0400 INFO No active profile set, falling back to default profiles: default
+2023-03-18T12:57:28.921-0400 INFO Started SareetaApplicationTests in 12.773 seconds (JVM running for 17.191)
+2023-03-18T13:02:34.409-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:02:34.423-0400 INFO log of history orders for testUser 
+2023-03-18T13:02:34.430-0400 INFO Order creation success: for testUser has been created
+2023-03-18T13:02:34.451-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:02:34.504-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:02:34.511-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:02:34.516-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:02:34.521-0400 DEBUG UserController.findByUserName called with username testUser
+2023-03-18T13:02:34.536-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:02:34.549-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:02:34.554-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:02:34.559-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:02:34.567-0400 DEBUG UserController.findById called with id 1
+2023-03-18T13:02:34.572-0400 ERROR Cannot find user with id: 0
+2023-03-18T13:02:34.582-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:02:35.463-0400 INFO Starting SareetaApplicationTests on DESKTOP-2942BAB with PID 2592 (started by Osprey in C:\Users\Osprey\Desktop\Udacity Projects\ecommerce\starter_code)
+2023-03-18T13:02:35.478-0400 DEBUG Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2023-03-18T13:02:35.480-0400 INFO No active profile set, falling back to default profiles: default
+2023-03-18T13:02:44.878-0400 INFO Started SareetaApplicationTests in 10.177 seconds (JVM running for 19.218)
+2023-03-18T13:07:30.255-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:07:30.284-0400 INFO log of history orders for testUser 
+2023-03-18T13:07:30.289-0400 INFO Order creation success: for testUser has been created
+2023-03-18T13:07:30.293-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:08:10.378-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:08:10.382-0400 INFO log of history orders for testUser 
+2023-03-18T13:08:10.388-0400 INFO Order creation success: for testUser has been created
+2023-03-18T13:08:10.393-0400 ERROR Order creation failed: Cannot find user with username: aniss
+2023-03-18T13:08:10.425-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:08:10.497-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:08:10.505-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:08:10.511-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:08:10.517-0400 DEBUG UserController.findByUserName called with username testUser
+2023-03-18T13:08:10.535-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:08:10.552-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:08:10.562-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:08:10.571-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:08:10.576-0400 DEBUG UserController.findById called with id 1
+2023-03-18T13:08:10.585-0400 ERROR Cannot find user with id: 0
+2023-03-18T13:08:10.597-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:08:11.048-0400 INFO Starting SareetaApplicationTests on DESKTOP-2942BAB with PID 18496 (started by Osprey in C:\Users\Osprey\Desktop\Udacity Projects\ecommerce\starter_code)
+2023-03-18T13:08:11.054-0400 DEBUG Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2023-03-18T13:08:11.054-0400 INFO No active profile set, falling back to default profiles: default
+2023-03-18T13:08:19.108-0400 INFO Started SareetaApplicationTests in 8.421 seconds (JVM running for 16.874)
+2023-03-18T13:09:39.593-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:09:39.596-0400 INFO log of history orders for testUser 
+2023-03-18T13:09:39.602-0400 INFO Order creation success: for testUser has been created
+2023-03-18T13:09:39.609-0400 ERROR Order creation failed: Cannot find user with username: aniss
+2023-03-18T13:09:39.619-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:09:39.698-0400 ERROR Cannot find user with username: aniss
+2023-03-18T13:09:39.708-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:09:39.717-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:09:39.722-0400 DEBUG UserController.findByUserName called with username testUser
+2023-03-18T13:09:39.735-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:09:39.746-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:09:39.753-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:09:39.763-0400 INFO User creation success: The user testUser has been created
+2023-03-18T13:09:39.767-0400 DEBUG UserController.findById called with id 1
+2023-03-18T13:09:39.774-0400 ERROR Cannot find user with id: 0
+2023-03-18T13:09:39.781-0400 ERROR User creation failed: user can't be created because password you enetered is not valid testUser
+2023-03-18T13:09:40.193-0400 INFO Starting SareetaApplicationTests on DESKTOP-2942BAB with PID 20844 (started by Osprey in C:\Users\Osprey\Desktop\Udacity Projects\ecommerce\starter_code)
+2023-03-18T13:09:40.199-0400 DEBUG Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2023-03-18T13:09:40.200-0400 INFO No active profile set, falling back to default profiles: default
+2023-03-18T13:09:48.055-0400 INFO Started SareetaApplicationTests in 8.183 seconds (JVM running for 13.206)

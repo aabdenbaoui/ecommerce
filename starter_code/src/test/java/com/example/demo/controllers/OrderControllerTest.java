@@ -56,6 +56,13 @@ public class OrderControllerTest {
         assertNotEquals("Not Found", response.getStatusCode().getReasonPhrase());
         assertEquals("OK", response.getStatusCode().getReasonPhrase());
     }
+    @Test
+    public void test_submit_failure(){
+        ResponseEntity<UserOrder> response = orderController.submit("aniss");
+        assertNotNull(response);
+        assertNotEquals("OK", response.getStatusCode().getReasonPhrase());
+        assertEquals("Not Found", response.getStatusCode().getReasonPhrase());
+    }
 
     @Test
     public void test_submit_failed_user_doesnt_exist_failed(){

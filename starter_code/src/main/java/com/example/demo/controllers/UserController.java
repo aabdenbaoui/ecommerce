@@ -21,7 +21,7 @@ public class UserController {
 	private UserRepository userRepository;
 	@Autowired
 	private CartRepository cartRepository;
-	private static final Logger log = LoggerFactory.getLogger(UserController.class);
+	final Logger log = LoggerFactory.getLogger(UserController.class);
 
 
 
@@ -50,6 +50,13 @@ public class UserController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
+		try{
+			String username = createUserRequest.getUsername();
+			String password = createUserRequest.getPassword();
+		}catch (NullPointerException e){
+			log.error("User creation failed:" , e);
+		}
+
 		User user = new User(createUserRequest.getUsername());
 		Cart cart = new Cart();
 		cartRepository.save(cart);
@@ -57,12 +64,14 @@ public class UserController {
 
 		if(!createUserRequest.getPassword().matches(regexPassword) ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmedPassword())){
-			log.error("user can't be created because password you enetered is noty valid {}", createUserRequest.getUsername());
+			log.error("User creation failed: user can't be created because password you enetered is not valid {}", createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
-		log.info("The user {} has been created", createUserRequest.getUsername());
+
+
+		log.info("User creation success: The user {} has been created", createUserRequest.getUsername());
 		return ResponseEntity.ok(user);
 	}
 }
